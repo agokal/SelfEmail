@@ -3,7 +3,7 @@ import datetime
 import random
 import csv
 
-yag = yagmail.SMTP('agokal.server@gmail.com')
+yag = yagmail.SMTP('!! ENTER THE EMAIL YOU WANT TO SEND IT FROM HERE !!')
 test = False
 
 # creates dated subject line
@@ -17,14 +17,14 @@ subject = f"Daily Briefing - {today}"
 # chooses random quote
 if test:
     quoteCountFile = open(
-        '/Users/alishan/Nextcloud/Projects/SelfEmail/QuotesCount.txt', 'r')
+        './QuotesCount.txt', 'r')
     quoteFile = open(
-        '/Users/alishan/Nextcloud/Projects/SelfEmail/Quotes.csv', 'r')
+        './Quotes.csv', 'r')
 else:
     quoteCountFile = open(
-        '/home/alishan/Nextcloud/Projects/SelfEmail/QuotesCount.txt', 'r')
+        './QuotesCount.txt', 'r')
     quoteFile = open(
-        '/home/alishan/Nextcloud/Projects/SelfEmail/Quotes.csv', 'r')
+        './Quotes.csv', 'r')
 quoteReader = csv.reader(quoteFile, delimiter=' ')
 quoteCount = int(quoteCountFile.read())
 randNum = random.randint(0, quoteCount-1)
@@ -42,5 +42,4 @@ if test:
     print('\n')
     print(contents)
 else:
-    yag.send('alishangokal@gmail.com', subject, contents)
-    yag.send('rish.hinwar@gmail.com', subject, contents)
+    yag.send('!! ENTER THE EMAIL YOU WANT TO SEND IT TO HERE !!', subject, contents)
